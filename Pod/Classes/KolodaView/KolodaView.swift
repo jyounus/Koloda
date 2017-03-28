@@ -81,6 +81,7 @@ open class KolodaView: UIView, DraggableCardDelegate {
     public var alphaValueTransparent = defaultAlphaValueTransparent
     public var alphaValueSemiTransparent = defaultAlphaValueSemiTransparent
     public var shouldPassthroughTapsWhenNoVisibleCards = false
+    public var applyShadow = true
     
     public weak var dataSource: KolodaViewDataSource? {
         didSet {
@@ -114,6 +115,21 @@ open class KolodaView: UIView, DraggableCardDelegate {
     }
     
     // MARK: Configurations
+    
+    public func applyShadowToCardView(cardView: DraggableCardView, at index: Int) {
+        if applyShadow {
+            cardView.layer.shadowColor = UIColor.black.cgColor
+            cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cardView.layer.shadowRadius = 5.0
+            cardView.layer.shadowOpacity = 0.4
+            
+        } else {
+            cardView.layer.shadowColor = nil
+            cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cardView.layer.shadowRadius = 0.0
+            cardView.layer.shadowOpacity = 0.0
+        }
+    }
     
     private func setupDeck() {
         if let dataSource = dataSource {

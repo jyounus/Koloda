@@ -28,6 +28,7 @@ extension KolodaView {
     func configureCard(_ card: DraggableCardView, at index: Int) {
         let contentView = dataSource!.koloda(self, viewForCardAt: index)
         card.configure(contentView, overlayView: dataSource?.koloda(self, viewForCardOverlayAt: index))
+        applyShadowToCardView(cardView: card, at: index)
     }
     
 }
