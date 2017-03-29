@@ -116,7 +116,7 @@ open class KolodaView: UIView, DraggableCardDelegate {
     
     // MARK: Configurations
     
-    public func applyShadowToCardView(cardView: DraggableCardView, at index: Int) {
+    open func applyShadowToCardView(cardView: DraggableCardView, at index: Int) {
         if applyShadow {
             cardView.layer.shadowColor = UIColor.black.cgColor
             cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
